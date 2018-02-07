@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity
             });
 
         } else if (id == R.id.nav_send) {
-
+             fragmentClass=NuestraEmpresaFragment.class;
         }
         try{
             fragment =(Fragment)fragmentClass.newInstance();
