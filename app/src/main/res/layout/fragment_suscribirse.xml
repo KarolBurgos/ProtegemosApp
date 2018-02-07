@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.karolb.protegemosapp.contactenosFragment">
+    tools:context="com.example.karolb.protegemosapp.SuscribirseFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,7 +27,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Contáctenos"
+                    android:text="Suscribete"
                     android:textAllCaps="false"
                     android:textColorLink="@android:color/white"
                     android:textSize="24sp"
@@ -38,7 +39,7 @@
                     android:layout_height="68dp"
                     android:autoSizeMinTextSize="?android:attr/secondaryContentAlpha"
                     android:elegantTextHeight="false"
-                    android:text="Necesitas un servicio, tiene alguna inquietud o simplemente deseas saludar... Contáctanos!!!"
+                    android:text="Queremos hacerte las cosas fáciles, déjanos tus datos y un asesor se comunicará contigo."
                     android:textSize="14sp" />
 
             </LinearLayout>
@@ -66,7 +67,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="Correo Electronico"
+                    android:hint="Identificación"
                     android:inputType="textPersonName" />
 
                 <EditText
@@ -76,17 +77,50 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="Número celular"
+                    android:hint="Ciudad"
                     android:inputType="textPersonName" />
 
                 <EditText
                     android:id="@+id/editText4"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="Mensaje"
+                    android:hint="Barrio"
+                    android:inputType="textPersonName" />
+
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Dirección"
+                    android:inputType="textPersonName" />
+
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Telefono"
+                    android:inputType="textPersonName" />
+
+
+                <EditText
+                    android:id="@+id/editText7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Correo Electronico"
                     android:inputType="textPersonName" />
 
                 <TextView
@@ -110,28 +144,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="260dp"
-                    android:layout_height="wrap_content"
-                    android:text="Nuestra Ubicación" />
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Carrera 36 Nº 19-93 Barrio Palermo - Teléfono: 731 3100 - Celular: 315 411 4537" />
-
-                <Button
-                    android:id="@+id/Ubicac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ubicación" />
             </LinearLayout>
 
 
         </LinearLayout>
 
     </ScrollView>
-
 </FrameLayout>
