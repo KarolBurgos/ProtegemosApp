@@ -5,23 +5,23 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/suscriptores"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="Suscriptores" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_ediciones"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Ediciones" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_planes"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Planes" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_susc"
             android:icon="@drawable/ic_menu_manage"
             android:title="Suscribete" />
         <item
-            android:id="@+id/nav_send"
+            android:id="@+id/nav_nuemp"
             android:icon="@drawable/ic_menu_send"
             android:title="Nuestra Empresa" />
     </group>
@@ -29,7 +29,7 @@
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_cont"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Contáctenos" />
 

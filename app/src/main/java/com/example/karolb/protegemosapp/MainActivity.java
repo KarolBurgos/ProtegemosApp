@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        Fragment fragment = null;
+
+        Class fragmentClass= PrincipalFragment.class;
+        try{
+            fragment = (Fragment) fragmentClass.newInstance();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
     }
 
@@ -87,16 +98,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         Fragment fragment=null;
-        Class fragmentClass=contactenosFragment.class;
+        Class fragmentClass=PrincipalFragment.class;
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.suscriptores) {
             fragmentClass=contactenosFragment.class;
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_ediciones) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_planes) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_susc) {
 
             AlertDialog.Builder uBuilder2 = new AlertDialog.Builder(this);
             View aView2 = getLayoutInflater().inflate(R.layout.fragment_suscribirse, null);
@@ -112,7 +123,7 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_cont) {
 
             AlertDialog.Builder uBuilder2 = new AlertDialog.Builder(this);
             View aView2 = getLayoutInflater().inflate(R.layout.fragment_contactenos, null);
@@ -128,7 +139,7 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_nuemp) {
              fragmentClass=NuestraEmpresaFragment.class;
         }
         try{
@@ -145,4 +156,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }
