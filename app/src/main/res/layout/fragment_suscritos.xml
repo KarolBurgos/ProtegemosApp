@@ -1,0 +1,110 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.karolb.protegemosapp.SuscritosFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="359dp"
+            android:layout_height="144dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="315dp"
+                android:layout_height="154dp"
+                android:layout_weight="1"
+                android:src="@drawable/agradecimiento" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="INICIO DE SESION"
+                android:textAllCaps="false"
+                android:textColorLink="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="308dp"
+                android:layout_height="68dp"
+                android:autoSizeMinTextSize="?android:attr/secondaryContentAlpha"
+                android:elegantTextHeight="false"
+                android:text="___________________________________________"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="326dp"
+            android:layout_height="247dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="No. Contrato"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Contraseña"
+                android:inputType="textPersonName" />
+
+
+            <Button
+                android:id="@+id/inico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center"
+                android:text="INICIAR SESION" />
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="138dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VOLVER" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Señor Suscriptor, para iniciar sesion la contraseña es el numero de cedula del titular del contrato. " />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

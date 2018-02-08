@@ -57,7 +57,7 @@ public class PrincipalFragment extends Fragment {
             super(fragmentManager);
         }
 
-        String[] tirulotabs={"Nuestra","Contactenos","NUestra"};
+        String[] tirulotabs={"Inicio","Contactenos","NUestra"};
 
 
         /**
