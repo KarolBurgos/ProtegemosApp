@@ -1,10 +1,14 @@
 package com.example.karolb.protegemosapp;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,91 +16,87 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PrincipalFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
 public class PrincipalFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private AppBarLayout appBar;
+    private TabLayout tabs;
+    private ViewPager viewPager;
 
     public PrincipalFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PrincipalFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PrincipalFragment newInstance(String param1, String param2) {
-        PrincipalFragment fragment = new PrincipalFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_principal, container, false);
+        View view = inflater.inflate(R.layout.fragment_principal, container, false);
+        View contenedor = (View) container.getParent();
+        appBar = (AppBarLayout) contenedor.findViewById(R.id.appbar);
+        tabs = new TabLayout(getActivity());
+        tabs.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
+        appBar.addView(tabs);
+
+        viewPager =(ViewPager)view.findViewById(R.id.pager);
+        ViewPagerAdapter pagerAdapter =new ViewPagerAdapter(getFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+        tabs.setupWithViewPager(viewPager);
+        return view;
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        appBar.removeView(tabs);
+    }
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
+    public class ViewPagerAdapter extends FragmentStatePagerAdapter{
+        public ViewPagerAdapter(FragmentManager fragmentManager){
+            super(fragmentManager);
         }
 
+        String[] tirulotabs={"Nuestra","Contactenos","NUestra"};
+
+
+        /**
+         * Return the Fragment associated with a specified position.
+         *
+         * @param position
+         */
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
+
             switch (position){
-                case 0:
-                    NuestraEmpresaFragment nu=new NuestraEmpresaFragment();
-                    return nu;
-                case 1:
-                    SuscribirseFragment sus=new SuscribirseFragment();
-                    return sus;
-                case 2:
-                    contactenosFragment cont=new contactenosFragment();
-                    return cont;
+                case 0:return  new NuestraEmpresaFragment();
+                case 1:return  new contactenosFragment();
+                case 2:return  new NuestraEmpresaFragment();
+
             }
             return null;
         }
 
+        /**
+         * Return the number of views available.
+         */
         @Override
         public int getCount() {
-            // Show 3 total pages.
             return 3;
         }
-    }
 
+        /**
+         * This method may be called by the ViewPager to obtain a title string
+         * to describe the specified page. This method may return null
+         * indicating no title for this page. The default implementation returns
+         * null.
+         *
+         * @param position The position of the title requested
+         * @return A title for the requested page
+         */
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return tirulotabs[position];
+        }
+    }
 }
