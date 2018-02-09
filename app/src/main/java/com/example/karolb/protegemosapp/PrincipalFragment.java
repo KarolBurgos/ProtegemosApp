@@ -69,7 +69,7 @@ public class PrincipalFragment extends Fragment {
         public Fragment getItem(int position) {
 
             switch (position){
-                case 0:return  new NuestraEmpresaFragment();
+                case 0:return  new InicioFragment();
                 case 1:return  new contactenosFragment();
                 case 2:return  new NuestraEmpresaFragment();
 
