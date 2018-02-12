@@ -39,6 +39,7 @@
                     android:layout_height="68dp"
                     android:autoSizeMinTextSize="?android:attr/secondaryContentAlpha"
                     android:elegantTextHeight="false"
+                    android:gravity="center"
                     android:text="Queremos hacerte las cosas fáciles, déjanos tus datos y un asesor se comunicará contigo."
                     android:textSize="14sp" />
 
@@ -55,10 +56,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:autoLink="none|web|email|phone|map|all"
                     android:ems="10"
+                    android:fadingEdge="horizontal"
                     android:gravity="center"
                     android:hint="Nombre"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:scrollbars="none"
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -128,6 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="Al enviar esta solicitud, acepto la politica de privacidad y manejo de datos de Protegemos G.C." />
 
                 <Button
