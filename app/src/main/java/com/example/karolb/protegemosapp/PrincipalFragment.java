@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 
 /**
@@ -22,7 +23,7 @@ public class PrincipalFragment extends Fragment {
     private AppBarLayout appBar;
     private TabLayout tabs;
     private ViewPager viewPager;
-
+    private ImageView logo;
     public PrincipalFragment() {
         // Required empty public constructor
     }
@@ -32,6 +33,7 @@ public class PrincipalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_principal, container, false);
         View contenedor = (View) container.getParent();
         appBar = (AppBarLayout) contenedor.findViewById(R.id.appbar);
@@ -43,6 +45,9 @@ public class PrincipalFragment extends Fragment {
         ViewPagerAdapter pagerAdapter =new ViewPagerAdapter(getFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabs.setupWithViewPager(viewPager);
+
+    //    ImageView logo= (ImageView)view.findViewById(R.id,i);
+      //  logo.setImageResource(R.drawable.inicio);
         return view;
     }
 
@@ -57,8 +62,9 @@ public class PrincipalFragment extends Fragment {
             super(fragmentManager);
         }
 
-        String[] tirulotabs={"Inicio","Contactenos","NUestra"};
+        String[] tirulotabs={"Inicio","Inf","NUestra"};
 
+//String.valueOf(getResources().getDrawable(R.drawable.inicio))
 
         /**
          * Return the Fragment associated with a specified position.
