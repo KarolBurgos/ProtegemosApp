@@ -1,7 +1,11 @@
 package com.example.karolb.protegemosapp;
 
 
+
+
+import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -9,6 +13,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +31,13 @@ public class PrincipalFragment extends Fragment {
     private TabLayout tabs;
     private ViewPager viewPager;
     private ImageView logo;
+
     public PrincipalFragment() {
         // Required empty public constructor
     }
 
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,17 +46,23 @@ public class PrincipalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_principal, container, false);
         View contenedor = (View) container.getParent();
         appBar = (AppBarLayout) contenedor.findViewById(R.id.appbar);
+        appBar.setBackgroundColor(Color.parseColor("#FF37D97C"));
         tabs = new TabLayout(getActivity());
         tabs.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
         appBar.addView(tabs);
 
-        viewPager =(ViewPager)view.findViewById(R.id.pager);
-        ViewPagerAdapter pagerAdapter =new ViewPagerAdapter(getFragmentManager());
+        viewPager = (ViewPager) view.findViewById(R.id.pager);
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         tabs.setupWithViewPager(viewPager);
 
-    //    ImageView logo= (ImageView)view.findViewById(R.id,i);
-      //  logo.setImageResource(R.drawable.inicio);
+        int icons[] = {R.drawable.bus, R.drawable.inicio, R.drawable.inicio};
+        tabs.getTabAt(0).setIcon(icons[0]);
+        tabs.getTabAt(1).setIcon(icons[1]);
+        tabs.getTabAt(2).setIcon(icons[2]);
+
+        //    ImageView logo= (ImageView)view.findViewById(R.id,i);
+        //  logo.setImageResource(R.drawable.inicio);
         return view;
     }
 
@@ -57,12 +72,14 @@ public class PrincipalFragment extends Fragment {
         appBar.removeView(tabs);
     }
 
-    public class ViewPagerAdapter extends FragmentStatePagerAdapter{
-        public ViewPagerAdapter(FragmentManager fragmentManager){
+    public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+        public ViewPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
         }
 
-        String[] tirulotabs={"Inicio","Inf","NUestra"};
+
+        //String tabtext=getResources().getStringArray(R.array.tabs);
+        String[] tirulotabs = {"Inicio", "Inf", "NUestra"};
 
 //String.valueOf(getResources().getDrawable(R.drawable.inicio))
 
@@ -74,10 +91,13 @@ public class PrincipalFragment extends Fragment {
         @Override
         public Fragment getItem(int position) {
 
-            switch (position){
-                case 0:return  new InicioFragment();
-                case 1:return  new contactenosFragment();
-                case 2:return  new NuestraEmpresaFragment();
+            switch (position) {
+                case 0:
+                    return new InicioFragment();
+                case 1:
+                    return new contactenosFragment();
+                case 2:
+                    return new NuestraEmpresaFragment();
 
             }
             return null;
@@ -102,7 +122,24 @@ public class PrincipalFragment extends Fragment {
          */
         @Override
         public CharSequence getPageTitle(int position) {
-            return tirulotabs[position];
+
+            switch (position) {
+                case 0:
+                    //tabs.addTab(tabs.newTab().setIcon(R.drawable.inicio));
+                   // tabs.addTab(tabs.getTabAt(0).setIcon(R.drawable.inicio));
+                    return "inicio";
+                case 1:
+                    return "inicio";
+                case 2:
+                    return "inicio";
+            }
+            return null;
+
         }
+        // return tirulotabs[position];
+
     }
+
+
+
 }

@@ -85,10 +85,41 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+     /*   if (id == R.id.action_settings) {
             return true;
         }
+*/
+        if (id == R.id.contac) {
+            AlertDialog.Builder uBuilder2 = new AlertDialog.Builder(this);
+            View aView2 = getLayoutInflater().inflate(R.layout.fragment_contactenos, null);
+            uBuilder2.setView(aView2);
+            final AlertDialog dialog2 = uBuilder2.create();
+            dialog2.show();
+            Button close = (Button) aView2.findViewById(R.id.close);
 
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog2.cancel();
+                }
+            });
+        }
+
+        else if (id == R.id.nuest) {
+            AlertDialog.Builder uBuilder2 = new AlertDialog.Builder(this);
+            View aView2 = getLayoutInflater().inflate(R.layout.fragment_nuestra_empresa, null);
+            uBuilder2.setView(aView2);
+            final AlertDialog dialog2 = uBuilder2.create();
+            dialog2.show();
+            Button close = (Button) aView2.findViewById(R.id.close);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog2.cancel();
+                }
+            });
+        }
         return super.onOptionsItemSelected(item);
     }
 
